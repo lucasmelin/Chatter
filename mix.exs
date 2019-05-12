@@ -42,7 +42,24 @@ defmodule Chatter.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:cors_plug, "~> 2.0"},
+      {:bcrypt_elixir, "~> 2.0"},
+      {:guardian, "~> 1.0"},
+      {:absinthe, "~> 1.4"},
+      {:absinthe_ecto, "~> 0.1.3"},
+      {:absinthe_phoenix, "~> 1.4.0"},
+      {:absinthe_plug, "~> 1.4"},
+      {:poison, "~> 2.1.0"},
+      {:quantum, "~> 2.3"},
+      {:timex, "~> 3.0"},
+      {:new_relic_agent, "~> 1.0"},
+      {:new_relic_absinthe, "~> 0.0.1"},
+      {:excoveralls, "~> 0.10", only: :test},
+      {:ex_machina, "~> 2.3", only: :test},
+      {:ex_spec, "~> 2.0", only: :test},
+      {:faker, "~> 0.7", only: :test},
+      {:junit_formatter, "~> 3.0", only: [:test]}
     ]
   end
 

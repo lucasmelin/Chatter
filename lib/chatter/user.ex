@@ -1,6 +1,9 @@
 defmodule Chatter.User do
   use Ecto.Schema
   import Ecto.Changeset
+  import Ecto.Query
+
+  alias Chatter.{Repo, Conversation, Post}
 
   schema "users" do
     field :email, :string
@@ -9,7 +12,18 @@ defmodule Chatter.User do
     field :password_hash, :string
     field :token, :string, virtual: true
 
+    many_to_many(:conversation, Conversation, join_through: "conversation_users")
+    has_many :posts, Post
+
     timestamps()
+  end
+
+  def search(search_term, current_user) do
+    Repo.all(
+      from u in __MODULE__,
+        where: ilike(u.name, ^("%" <> search_term <> "%")) and u.id != ^current_user.id,
+        limit: 25
+    )
   end
 
   def find(id) do

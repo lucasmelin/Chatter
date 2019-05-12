@@ -22,6 +22,9 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+# Configures Guardian to manage tokens
+config :chatter, Chatter.Guardian, issuer: "chatter"
+
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
